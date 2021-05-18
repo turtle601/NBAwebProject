@@ -20,13 +20,14 @@ import com.drmilk.nbawrapper.domain.utils.scoreboard.Scoreboard;
 import com.drmilk.nbawrapper.exception.ScoreboardNotFoundException;
 import com.drmilk.nbawrapper.exception.TeamNotFoundException;
 import com.js.nba.member.Member;
+import com.js.nba.service.NbaService;
 
 @Controller
 @RequestMapping("/webPage")
 public class NbaController {
 	
-//	@Autowired
-//	Member member;
+	@Autowired
+	NbaService service;
 	
 	@ModelAttribute("cp")
 	public String getContextPath(HttpServletRequest request) {
@@ -45,7 +46,18 @@ public class NbaController {
 	}
 	        
 	@RequestMapping(value = "/todayMatchResult", method = RequestMethod.POST)
-	public String todayMatchResult(@ModelAttribute("member") Member mem) throws ScoreboardNotFoundException, TeamNotFoundException {
+	public String todayMatchResult(Model m, Member mem) throws ScoreboardNotFoundException, TeamNotFoundException {
+		ArrayList<String> sc = service.FindScore(mem);
+		
+		// sc할당되었는지 확인하는 코드
+		for (int i = 0; i < sc.size(); i++) {
+			System.out.println(sc.get(i));
+			
+		}
+		
+		m.addAttribute("score", sc);
+	
+		/*
 		Scoreboard scoreboard = League.getScoreboard(mem.getDay(), mem.getMonth(), mem.getYear());
 		List<GameDetails> gameList = scoreboard.getGames();
 		
@@ -63,10 +75,12 @@ public class NbaController {
 					System.out.println(vteam.getFullName() + "  " + gameList.get(i).getVisitingTeamScore().getScore());
 					System.out.println(hteam.getFullName() + "  " + gameList.get(i).getHomeTeamScore().getScore());
 					System.out.println("------------------------------------------");
+					break;
 				}
 				
 			}
 		}
+		*/
 		
 		// 입력값을 집어넣은 객체를 해당 뷰에 보여준다.
 		return "/webPage/todayMatchResult";

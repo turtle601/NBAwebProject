@@ -9,12 +9,10 @@
 </head>
 <body>
 	<ul>
-		<c:forEach var = "team" items = "${member.team}">
-		<li>선택한 팀: ${team}</li>
-		</c:forEach>
+	<c:forEach var = "result" items = "${score}">
+		<li> 경기 결과: ${result}</li>
+	</c:forEach>
 	</ul>
-	${member.year} 년도
-	${member.month} 달
-	${member.day} 일
+
 </body>
 </html>
