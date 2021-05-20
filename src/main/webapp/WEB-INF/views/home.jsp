@@ -8,8 +8,8 @@
 <title>Home</title>
 </head>
 <body>
-	<h1>해당 날짜의 경기기록을 확인해보세요</h1>
-	<a href = "${cp}/webPage/todayMatch">해당 날짜의 경기기록을 확인해보세요</a>
+	<h1>NBA</h1>
+	<a href = "${cp}/webPage/todayMatch">원하는 날짜의 경기기록을 확인해보세요</a>
 	
 </body>
 </html>

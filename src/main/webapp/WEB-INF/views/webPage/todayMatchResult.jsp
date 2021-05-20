@@ -13,6 +13,7 @@
 		<li> 경기 결과: ${result}</li>
 	</c:forEach>
 	</ul>
-
+	
+	<a href = "${cp}/webPage/todayMatch">돌아가기</a>
 </body>
 </html>

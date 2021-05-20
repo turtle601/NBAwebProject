@@ -33,6 +33,9 @@ public class NbaService implements NbaIService {
 			String homeTeam = gameList.get(i).getHomeTeamScore().getTeamId();
 			Team hteam = Team.getTeamById(homeTeam);
 			
+			System.out.println(vteam.getFullName());
+			System.out.println(hteam.getFullName());
+						
 			for (int j = 0; j < mem.getTeam().length; j++) {
 				// 선택한 팀이 vTeam,hTeam 중 하나 있으면
 				if (vteam.getFullName().equals(mem.getTeam()[j]) || hteam.getFullName().equals(mem.getTeam()[j])) {
