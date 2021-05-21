@@ -42,8 +42,6 @@ public class Member {
 		this.day = day;
 	}
 
-	
-	
 
 	
 		

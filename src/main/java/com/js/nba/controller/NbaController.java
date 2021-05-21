@@ -35,7 +35,12 @@ public class NbaController {
 	}
 	
 	@RequestMapping("/todayMatch")
-	public String todayMatch(Model model) {
+	public String todayMatch(Model model) throws ScoreboardNotFoundException {
+		
+		Scoreboard scoreboard = League.getScoreboard(25, 01, 2016);
+		// From this scoreboard, you can access different information
+		List<GameDetails> gameList = scoreboard.getGames();
+		System.out.println(gameList.get(0).getHomeTeamScore());
 		
 		//view에 보여지기 위한 객체를 생성
 		Member mem = new Member();
