@@ -34,24 +34,19 @@ public class NbaController {
 		return request.getContextPath();
 	}
 	
-	@RequestMapping("/todayMatch")
-	public String todayMatch(Model model) throws ScoreboardNotFoundException {
-		
-		Scoreboard scoreboard = League.getScoreboard(25, 01, 2016);
-		// From this scoreboard, you can access different information
-		List<GameDetails> gameList = scoreboard.getGames();
-		System.out.println(gameList.get(0).getHomeTeamScore());
+	@RequestMapping("/match")
+	public String Match(Model model) throws ScoreboardNotFoundException {
 		
 		//view에 보여지기 위한 객체를 생성
 		Member mem = new Member();
 		
 		model.addAttribute("member", mem);
 		
-		return "/webPage/todayMatch";
+		return "/webPage/match";
 	}
 	        
-	@RequestMapping(value = "/todayMatchResult", method = RequestMethod.POST)
-	public String todayMatchResult(Model m, Member mem) throws ScoreboardNotFoundException, TeamNotFoundException {
+	@RequestMapping(value = "/matchResult", method = RequestMethod.POST)
+	public String MatchResult(Model m, Member mem) throws ScoreboardNotFoundException, TeamNotFoundException {
 		ArrayList<String> sc = service.FindScore(mem);
 		
 		// sc할당되었는지 확인하는 코드
@@ -88,6 +83,6 @@ public class NbaController {
 		*/
 		
 		// 입력값을 집어넣은 객체를 해당 뷰에 보여준다.
-		return "/webPage/todayMatchResult";
+		return "/webPage/matchResult";
 	}
 }

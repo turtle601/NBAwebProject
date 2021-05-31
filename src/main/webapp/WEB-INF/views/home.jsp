@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>NBA</h1>
-	<a href = "${cp}/webPage/todayMatch">원하는 날짜의 경기기록을 확인해보세요</a>
+	<a href = "${cp}/webPage/match">원하는 날짜의 경기기록을 확인해보세요</a>
 	
 </body>
 </html>

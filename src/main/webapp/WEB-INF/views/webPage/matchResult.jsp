@@ -14,6 +14,6 @@
 	</c:forEach>
 	</ul>
 	
-	<a href = "${cp}/webPage/todayMatch">돌아가기</a>
+	<a href = "${cp}/webPage/match">돌아가기</a>
 </body>
 </html>

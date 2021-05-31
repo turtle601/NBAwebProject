@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1>해당 날짜의 경기기록을 확인해보세요</h1>
-	<form:form action="todayMatchResult" method = "post" modelAttribute = "member">
+	<form:form action="matchResult" method = "post" modelAttribute = "member">
 				
 		경기 날짜(년): <form:input path = "year" /> 
 		경기 날짜(월): <form:input path = "month"/>
